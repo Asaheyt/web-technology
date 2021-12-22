@@ -1,4 +1,4 @@
-<nav class="bg-gray-800">
+<nav class="bg-gray-800 mb-30">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
@@ -19,12 +19,12 @@
           <div *ngIf="!auth">
             <button type="button"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4"
-                    id="sign-in" aria-expanded="false" aria-haspopup="true">
+                    id="sign-in" aria-expanded="false" aria-haspopup="true" routerLink="/login">
               Sign In
             </button>
             <button type="button"
                     class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                    id="sign-up" aria-expanded="false" aria-haspopup="true">
+                    id="sign-up" aria-expanded="false" aria-haspopup="true" routerLink="/register">
               Sign Up
             </button>
           </div>
