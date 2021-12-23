@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Item} from "../model/item";
+import {MainService} from "./main.service";
 
 @Component({
   selector: 'st-main',
@@ -7,9 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  items: Item[] = []
+
+  constructor(
+    private mainService: MainService,
+  ) {
+  }
 
   ngOnInit(): void {
+    this.getItems();
+  }
+
+  getItems() {
+    this.mainService.getItems()
+      .subscribe(
+        data => {
+          this.items = data;
+        }
+      );
+  }
+
+  checkOwner(item: Item): boolean {
+    const email = window.localStorage.getItem("email")
+    if (email) {
+
+      if (item.owners.includes(email)) {
+        return false;
+      }
+    }
+    return true;
   }
 
 }
