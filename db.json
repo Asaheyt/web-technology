@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "email": "asdf@asdf.asdf",
+      "name": "asdf",
+      "nickname": "asdf",
+      "phone": "+71234567980",
+      "password": "asdfasdf",
+      "id": 1
+    }
+  ]
+}
