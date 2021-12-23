@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'st-root',
@@ -7,5 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'store';
-  auth = window.localStorage.getItem("email");
+
+  exit() {
+    window.localStorage.clear();
+  }
+
+  getLocalStorage(): any {
+    return window.localStorage.getItem("email");
+  }
 }
