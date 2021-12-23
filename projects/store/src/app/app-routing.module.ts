@@ -15,6 +15,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'item', component: ItemComponent},
+  {path: 'about', loadChildren: () => import('../app/about/about.module').then(m => m.AboutModule)}
 ];
 
 @NgModule({

@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'store';
-  auth = false;
+  auth = window.localStorage.getItem("email");
 }
