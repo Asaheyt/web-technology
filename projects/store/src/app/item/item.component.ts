@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Item} from "../model/item";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ItemService} from "./item.service";
 
 @Component({
   selector: 'st-item',
@@ -7,9 +10,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() item?: Item
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private itemService: ItemService,
+  ) {
   }
 
+  ngOnInit(): void {
+    this.getItem()
+  }
+
+  getItem() {
+
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.itemService.getItems(id)
+      .subscribe(
+        data => {
+          console.log(data)
+          this.item = data
+        }
+      );
+  }
+
+  delete() {
+    const email = window.localStorage.getItem("email")
+    if (email && this.item) {
+
+      const owners = this.item.owners.filter((itemEmail: any) => {
+        if(itemEmail !== email) return itemEmail;
+      });
+
+      this.item.owners = owners;
+
+
+      this.itemService.deleteItem(this.item)
+        .subscribe(
+          data => {
+            this.router.navigateByUrl("/library")
+
+          }
+        );
+
+    }
+
+  }
 }

@@ -1,12 +1,21 @@
 {
   "users": [
     {
+      "img": "https://www.pngitem.com/pimgs/m/560-5603874_product-image-logo-avatar-minimalist-flat-line-hd.png",
       "email": "asdf@asdf.asdf",
       "name": "asdf",
       "nickname": "asdf",
       "phone": "+71234567980",
       "password": "asdfasdf",
       "id": 1
+    },
+    {
+      "email": "fdsa@fdsa.fdsa",
+      "name": "fdsa",
+      "nickname": "fdsa",
+      "phone": "+71234567981",
+      "password": "fdsafdsa",
+      "id": 2
     }
   ],
   "items": [
@@ -26,7 +35,6 @@
       "description": "SomeInformation about product",
       "owners": [
         "fdsa@asdf.asdf",
-        "asdf@asdf.asdf",
         "asdf@asdf.asdf"
       ]
     },
