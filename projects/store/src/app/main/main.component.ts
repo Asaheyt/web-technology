@@ -50,7 +50,7 @@ export class MainComponent implements OnInit {
     this.mainService.addItem(item)
       .subscribe(
         data => {
-          this.items = data;
+          this.getItems();
         }
       );
 
