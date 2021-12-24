@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, throwError} from "rxjs";
 import {catchError, map} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
+import {Item} from "../model/item";
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,17 @@ export class MainService {
       }
     ));
   }
+
+  addItem(item: Item): Observable<any> {
+    return this.http.put<any>(
+      "http://localhost:3000/items/"+ item.id,
+      item
+    ).pipe(catchError(this.formatErrors)).pipe(map(
+      data => {
+        return data;
+      }
+    ));
+  }
+
+
 }

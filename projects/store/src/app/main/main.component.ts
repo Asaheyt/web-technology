@@ -32,12 +32,27 @@ export class MainComponent implements OnInit {
   checkOwner(item: Item): boolean {
     const email = window.localStorage.getItem("email")
     if (email) {
-
-      if (item.owners.includes(email)) {
-        return false;
+      if (!(item.owners.includes(email))) {
+        return true;
       }
     }
-    return true;
+
+    return false;
   }
 
+  addItem(item: Item) {
+
+    const email = window.localStorage.getItem("email")
+    if (email) {
+      item.owners.push(email);
+    }
+
+    this.mainService.addItem(item)
+      .subscribe(
+        data => {
+          this.items = data;
+        }
+      );
+
+  }
 }
