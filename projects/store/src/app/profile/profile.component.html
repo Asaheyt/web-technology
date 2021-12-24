@@ -1,5 +1,5 @@
 <div class="min-h-screen flex justify-center items-center" *ngIf="info">
-  <div class="w-48 h-64 rounded-xl bg-gray-200 flex flex-col shadow">
+  <div class="w-48 h-64 rounded-xl bg-gray-200 flex flex-col shadow" *ngIf="info.img">
     <img class="w-auto rounded-t-xl" src="{{info.img}}" alt="alter" />
   </div>
   <div class="w-full h-64 bg-white rounded-lg shadow-lg lg:w-1/3" >

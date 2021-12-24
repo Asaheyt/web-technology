@@ -14,10 +14,9 @@ export class ProfileComponent implements OnInit {
   constructor(
     private profileService: ProfileService,
   ) {
-    if (this.info)
-      this.info.img = 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png';
 
     this.getInfo();
+
   }
 
   ngOnInit(): void {
