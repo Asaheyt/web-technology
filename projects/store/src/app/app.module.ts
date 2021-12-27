@@ -14,6 +14,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ProfileService} from "./profile/profile.service";
 import {LoaderInterceptor} from "./loader/loader.interceptor";
 import {LoaderComponent} from './loader/loader.component';
+import {BreadcrumbModule} from "angular-crumbs";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {LoaderComponent} from './loader/loader.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BreadcrumbModule
   ],
   providers: [
     ProfileService, {

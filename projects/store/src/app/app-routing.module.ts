@@ -10,13 +10,13 @@ import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: '/main', pathMatch: 'full'},
-  {path: 'main', component: MainComponent},
-  {path: 'library', component: LibraryComponent, canActivate: [AuthGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'item/:id', component: ItemComponent, canActivate: [AuthGuard]},
-  {path: 'about', loadChildren: () => import('../app/about/about.module').then(m => m.AboutModule)}
+  {path: 'main', component: MainComponent, data: {breadcrumb: 'Main'}},
+  {path: 'library', component: LibraryComponent, canActivate: [AuthGuard], data: {breadcrumb: 'Library'}},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], data: {breadcrumb: 'Profile'}},
+  {path: 'login', component: LoginComponent, data: {breadcrumb: 'Login'}},
+  {path: 'register', component: RegisterComponent, data: {breadcrumb: 'Register'}},
+  {path: 'item/:id', component: ItemComponent, canActivate: [AuthGuard], data: {breadcrumb: 'Item'}},
+  {path: 'about', loadChildren: () => import('../app/about/about.module').then(m => m.AboutModule), data: {breadcrumb: 'About'}}
 ];
 
 @NgModule({

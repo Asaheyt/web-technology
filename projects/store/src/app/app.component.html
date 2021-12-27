@@ -48,5 +48,23 @@
   </div>
 
 </nav>
+
+<breadcrumb #parent
+            class="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+    <nav class="bg-grey-light rounded-md w-full" aria-label="breadcrumb">
+      <ol class="breadcrumb list-reset flex">
+        <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+          <li *ngIf="!route.terminal" class="breadcrumb-item text-gray-500 hover:text-gray-600">
+            <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+          </li>
+          <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{ route.displayName }}</li>
+        </ng-template>
+      </ol>
+    </nav>
+  </div>
+</breadcrumb>
+
+
 <st-loader></st-loader>
 <router-outlet></router-outlet>
