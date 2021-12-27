@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Item} from "../model/item";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ItemService} from "./item.service";
+import {Profile} from "../model/profile";
 
 @Component({
   selector: 'st-item',
@@ -11,6 +12,7 @@ import {ItemService} from "./item.service";
 export class ItemComponent implements OnInit {
 
   @Input() item?: Item
+  @Input() currentUser ?: Profile
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +23,7 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.getItem()
+    this.getCurrentUser()
   }
 
   getItem() {
@@ -41,7 +44,7 @@ export class ItemComponent implements OnInit {
     if (email && this.item) {
 
       const owners = this.item.owners.filter((itemEmail: any) => {
-        if(itemEmail !== email) return itemEmail;
+        if (itemEmail !== email) return itemEmail;
       });
 
       this.item.owners = owners;
@@ -57,5 +60,14 @@ export class ItemComponent implements OnInit {
 
     }
 
+  }
+
+  getCurrentUser() {
+    this.itemService.getCurrentUser()
+      .subscribe(
+        data => {
+          this.currentUser = data;
+        }
+      );
   }
 }

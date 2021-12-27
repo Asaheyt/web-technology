@@ -41,5 +41,19 @@ export class ItemService {
     ));
   }
 
+  getCurrentUser(): Observable<any> {
+    return this.http.get<any>(
+      "http://localhost:3000/users"
+    ).pipe(catchError(this.formatErrors)).pipe(map(
+      data => {
+        const res = data.find((a: any) => {
+            return a.email === window.localStorage.getItem("email")
+          }
+        );
+        return res;
+      }
+    ));
+  }
+
 
 }
