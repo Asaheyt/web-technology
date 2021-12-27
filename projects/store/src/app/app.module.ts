@@ -12,7 +12,8 @@ import {ItemComponent} from './item/item.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ProfileService} from "./profile/profile.service";
-import {TokenInterceptor} from "./token.interceptor";
+import {LoaderInterceptor} from "./loader/loader.interceptor";
+import {LoaderComponent} from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {TokenInterceptor} from "./token.interceptor";
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    ItemComponent
+    ItemComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import {TokenInterceptor} from "./token.interceptor";
   providers: [
     ProfileService, {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
+      useClass: LoaderInterceptor,
       multi: true
     }],
   bootstrap: [AppComponent]
