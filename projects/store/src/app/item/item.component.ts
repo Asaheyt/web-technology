@@ -3,6 +3,8 @@ import {Item} from "../model/item";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ItemService} from "./item.service";
 import {Profile} from "../model/profile";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Comment} from "../model/comment";
 
 @Component({
   selector: 'st-item',
@@ -14,11 +16,17 @@ export class ItemComponent implements OnInit {
   @Input() item?: Item
   @Input() currentUser ?: Profile
 
+  commentForm: FormGroup;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private itemService: ItemService,
+    private fb: FormBuilder
   ) {
+    this.commentForm = this.fb.group({
+      'text': ['', Validators.required]
+    });
   }
 
   ngOnInit(): void {
@@ -69,5 +77,28 @@ export class ItemComponent implements OnInit {
           this.currentUser = data;
         }
       );
+  }
+
+  comment() {
+    const commentText = this.commentForm.value;
+
+    if (this.item && this.currentUser) {
+      const comment: Comment = {
+        img: this.currentUser.img,
+        name: this.currentUser.name,
+        text: commentText.text,
+      }
+
+      this.item.comments.push(comment);
+
+
+      this.itemService.comment(this.item)
+        .subscribe(
+          data => {
+            this.commentForm.reset();
+            this.router.navigateByUrl(`/main/item/${this.item?.id}`)
+          }
+        );
+    }
   }
 }

@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, map} from "rxjs/operators";
 import {Item} from "../model/item";
+import {Profile} from "../model/profile";
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class ItemService {
 
   deleteItem(item: Item): Observable<any> {
     return this.http.put<any>(
-      "http://localhost:3000/items/"+ item.id,
+      "http://localhost:3000/items/" + item.id,
       item
     ).pipe(catchError(this.formatErrors)).pipe(map(
       data => {
@@ -56,4 +57,15 @@ export class ItemService {
   }
 
 
+  comment(item: Item) {
+    return this.http.put<any>(
+      "http://localhost:3000/items/"+ item.id,
+      item
+    ).pipe(catchError(this.formatErrors)).pipe(map(
+      data => {
+        return data;
+      }
+    ));
+
+  }
 }
