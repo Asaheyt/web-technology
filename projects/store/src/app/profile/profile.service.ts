@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, throwError} from "rxjs";
 import {catchError, map} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
+import {Profile} from "../model/profile";
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +33,14 @@ export class ProfileService {
     ));
   }
 
+  save(profile: Profile) {
+    return this.http.put<any>(
+      "http://localhost:3000/users/"+ profile.id,
+      profile
+    ).pipe(catchError(this.formatErrors)).pipe(map(
+      data => {
+        return data;
+      }
+    ));
+  }
 }

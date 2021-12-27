@@ -3,7 +3,7 @@
     {
       "img": "https://www.pngitem.com/pimgs/m/560-5603874_product-image-logo-avatar-minimalist-flat-line-hd.png",
       "email": "asdf@asdf.asdf",
-      "name": "asdf",
+      "name": "fergergergasdfs",
       "nickname": "asdf",
       "phone": "+71234567980",
       "password": "asdfasdf",
@@ -72,6 +72,11 @@
           "img": "https://www.pngitem.com/pimgs/m/560-5603874_product-image-logo-avatar-minimalist-flat-line-hd.png",
           "name": "asdf",
           "text": "asdf"
+        },
+        {
+          "img": "https://www.pngitem.com/pimgs/m/560-5603874_product-image-logo-avatar-minimalist-flat-line-hd.png",
+          "name": "asdf",
+          "text": "asf"
         }
       ]
     },
@@ -122,8 +127,7 @@
       "title": "Overwatch",
       "description": "SomeInformation about product",
       "owners": [
-        "fdsa@asdf.asdf",
-        "asdf@asdf.asdf"
+        "fdsa@asdf.asdf"
       ],
       "comments": [
         {
@@ -144,7 +148,8 @@
       "title": "Call of duty",
       "description": "SomeInformation about product",
       "owners": [
-        "asfdsadf@asdf.asdf"
+        "asfdsadf@asdf.asdf",
+        "asdf@asdf.asdf"
       ],
       "comments": [
         {
@@ -156,6 +161,11 @@
           "img": "https://www.fivesquid.com/pics/t2/1519276069-83476-1-1.jpg",
           "name": "fdsa",
           "text": "UUUUUhoooooooo"
+        },
+        {
+          "img": "https://www.pngitem.com/pimgs/m/560-5603874_product-image-logo-avatar-minimalist-flat-line-hd.png",
+          "name": "fergergerg",
+          "text": "gegerg"
         }
       ]
     },
