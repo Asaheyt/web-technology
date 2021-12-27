@@ -59,6 +59,7 @@
             <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
           </li>
           <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{ route.displayName }}</li>
+          <li class="mr-3 ml-3">/</li>
         </ng-template>
       </ol>
     </nav>

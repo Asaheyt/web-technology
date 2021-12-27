@@ -19,12 +19,12 @@ import {BreadcrumbModule} from "angular-crumbs";
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    LibraryComponent,
+    // MainComponent,
+    // LibraryComponent,
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    ItemComponent,
+    // ItemComponent,
     LoaderComponent
   ],
   imports: [

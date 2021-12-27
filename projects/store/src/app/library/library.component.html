@@ -21,7 +21,7 @@
           </thead>
           <tbody class="bg-white divide-y divide-gray-200" *ngFor="let item of items">
           <tr>
-              <td class="px-6 py-4 whitespace-nowrap " routerLink="/item/{{item.id}}">
+              <td class="px-6 py-4 whitespace-nowrap " routerLink="/main/item/{{item.id}}">
                 <div class="flex items-center">
                   <div class="flex-shrink-0 h-10 w-10">
                     <img class="h-10 w-10 rounded-full" src="{{item.img}}" alt="">
@@ -36,10 +36,10 @@
                   </div>
                 </div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap" routerLink="/item/{{item.id}}">
+              <td class="px-6 py-4 whitespace-nowrap" routerLink="/main/item/{{item.id}}">
                 <div class="text-sm text-gray-900">{{item.title}}</div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" routerLink="/item/{{item.id}}">
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" routerLink="/main/item/{{item.id}}">
                 {{item.description}}
               </td>
             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
